@@ -5,10 +5,13 @@ function useJokeGenerator({ setCopied }) {
   const [prompt, setPrompt] = useState("");
   const [joke, setJoke] = useState("");
   const [loading, setLoading] = useState(false);
+  const [aux, setAux] = useState("");
 
   const generateJoke = async (prompt) => {
     setCopied(false);
     setLoading(true);
+    setPrompt("");
+    setAux(prompt);
     try {
       const response = await fetch("/api/generate", {
         method: "POST",
@@ -23,7 +26,6 @@ function useJokeGenerator({ setCopied }) {
       alert(error.message);
       return;
     }
-
     setLoading(false);
   };
 
@@ -34,6 +36,7 @@ function useJokeGenerator({ setCopied }) {
 
   const handlePromptChange = (e) => {
     setPrompt(e.target.value);
+    setAux("");
     setJoke("");
   };
 
@@ -44,6 +47,7 @@ function useJokeGenerator({ setCopied }) {
     loading,
     handleSubmit,
     handlePromptChange,
+    aux,
   };
 }
 

@@ -6,8 +6,15 @@ import SocialIcon from "./components/SocialIcon";
 function HomePage() {
   const [copied, setCopied] = useState(false);
 
-  const { prompt, setPrompt, joke, loading, handleSubmit, handlePromptChange } =
-    useJokeGenerator({ setCopied });
+  const {
+    prompt,
+    setPrompt,
+    joke,
+    loading,
+    handleSubmit,
+    handlePromptChange,
+    aux,
+  } = useJokeGenerator({ setCopied });
 
   const handleCopy = () => {
     navigator.clipboard.writeText(joke);
@@ -58,6 +65,11 @@ function HomePage() {
         >
           {loading ? "Pensando..." : "Generar"}
         </button>
+        {aux && (
+          <p className="text-xs text-gray-500 mt-2 mb-2">
+            Prompt enviado: {aux}
+          </p>
+        )}
         {joke && (
           <p className="text-2xl font-bold text-white mt-8 text-center">
             {joke}
