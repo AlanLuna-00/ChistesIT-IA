@@ -13,13 +13,6 @@ const openai = new OpenAIApi(configuration);
 export async function POST(request) {
   const body = await request.json();
 
-  //   better error handling
-  if (!body.prompt || body.prompt.length === 0) {
-    return NextResponse.error(new Error("You must provide a prompt"), {
-      status: 400,
-    });
-  }
-
   try {
     const response = await openai.createCompletion({
       model: "text-davinci-003",

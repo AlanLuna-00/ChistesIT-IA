@@ -1,6 +1,6 @@
 "use client";
 import useJokeGenerator from "@/hook/useJokeGenerator";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SocialIcon from "./components/SocialIcon";
 
 function HomePage() {
@@ -13,6 +13,21 @@ function HomePage() {
     navigator.clipboard.writeText(joke);
     setCopied(true);
   };
+
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const handleErrorInput = () => {
+      let error = "";
+      if (prompt.length > 20) {
+        error = "El texto no puede ser mayor a 20 caracteres";
+      } else if (prompt.length < 3) {
+        error = "El texto no puede ser menor a 3 caracteres";
+      }
+      return error;
+    };
+    setError(handleErrorInput());
+  }, [prompt]);
 
   return (
     <div className="bg-gray-900 h-screen flex justify-center items-center">
@@ -28,15 +43,18 @@ function HomePage() {
           name="name"
           placeholder="Lo que escribas sera un chiste de 👨🏽‍💻"
           onChange={handlePromptChange}
-          className="p-3 rounded-md block bg-gray-700 text-white w-full mb-4"
+          className="p-3 rounded-md block bg-gray-700 text-white w-full mb-2"
           value={prompt}
           autoFocus
           autoComplete="off"
         />
+        {error && (
+          <p className="text-red-500 text-xs italic mt-2 mb-2">{error}</p>
+        )}
         <button
           type="submit"
           className="bg-green-500 p-3 rounded-md block w-full text-white disabled:opacity-50"
-          disabled={!prompt || loading}
+          disabled={!prompt || loading || error}
         >
           {loading ? "Pensando..." : "Generar"}
         </button>
