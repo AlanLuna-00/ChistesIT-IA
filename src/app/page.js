@@ -57,6 +57,11 @@ function HomePage() {
         <span className="absolute top-0 right-0 p-2 text-gray-600 text-xs">
           by Alan Luna 🚀
         </span>
+        <span className="absolute bottom-0 left-0 p-2 text-gray-600 text-xs">
+          <a href="https://platform.openai.com/overview" target="_blank">
+            Powered by OpenAI
+          </a>
+        </span>
         <SocialIcon />
       </form>
     </div>
