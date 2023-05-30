@@ -66,9 +66,7 @@ function HomePage() {
           {loading ? "Pensando..." : "Generar"}
         </button>
         {aux && (
-          <p className="text-xs text-gray-500 mt-2 mb-2">
-            Prompt enviado: {aux}
-          </p>
+          <p className="text-xs text-gray-500 mt-2 mb-2">Chiste sobre: {aux}</p>
         )}
         {joke && (
           <p className="text-2xl font-bold text-white mt-8 text-center">
