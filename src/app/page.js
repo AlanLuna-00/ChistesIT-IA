@@ -45,7 +45,7 @@ function HomePage() {
         <h1 className="text-3xl text-white mb-8 text-center">
           <span className="font-bold">Chistes IT 🤣</span>
           <p className="text-xs text-gray-500 mt-2 mb-2">
-            Problablemente no lo entiendas 😆
+            Problablemente no los entiendas 😆
           </p>
         </h1>
         <input
