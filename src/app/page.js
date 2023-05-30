@@ -21,7 +21,7 @@ function HomePage() {
         className="bg-gray-800 p-10 rounded-md form relative"
       >
         <h1 className="text-3xl font-bold text-white mb-8 text-center">
-          Chistes IT AI
+          Chistes IT 🤣
         </h1>
         <input
           type="text"
