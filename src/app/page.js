@@ -42,8 +42,11 @@ function HomePage() {
         onSubmit={handleSubmit}
         className="bg-gray-800 p-10 rounded-md form relative"
       >
-        <h1 className="text-3xl font-bold text-white mb-8 text-center">
-          Chistes IT 🤣
+        <h1 className="text-3xl text-white mb-8 text-center">
+          <span className="font-bold">Chistes IT 🤣</span>
+          <p className="text-xs text-gray-500 mt-2 mb-2">
+            Problablemente no lo entiendas 😆
+          </p>
         </h1>
         <input
           type="text"
@@ -66,7 +69,9 @@ function HomePage() {
           {loading ? "Pensando..." : "Generar"}
         </button>
         {aux && (
-          <p className="text-xs text-gray-500 mt-2 mb-2">Chiste sobre: {aux}</p>
+          <p className="text-xs text-gray-500 mt-2 mb-2">
+            Tema del chiste: {aux}
+          </p>
         )}
         {joke && (
           <p className="text-2xl font-bold text-white mt-8 text-center">
@@ -75,8 +80,8 @@ function HomePage() {
         )}
         <button
           onClick={handleCopy}
-          className={`border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold py-2 px-4 rounded mt-5 ${
-            copied ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-200"
+          className={`border border-blue-500 text-blue-500 font-bold py-2 px-4 rounded mt-5 ${
+            copied ? "opacity-50 cursor-not-allowed" : ""
           }`}
           disabled={copied || !joke}
         >
